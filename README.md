@@ -1,7 +1,7 @@
 # Folder Card by [@georgesg](https://www.github.com/georgesg)
 
 [![GitHub Release][releases-shield]][releases]
-[![License][license-shield]](LICENSE.md)
+[![License][license-shield]](LICENSE)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
