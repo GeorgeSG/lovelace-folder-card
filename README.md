@@ -15,6 +15,29 @@ If you define a `call-service` tap_action, the service will receive a `file` var
 ![example](assets/example.png)
 
 
+## Installation
+
+Follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins).
+
+```yaml
+resources:
+  - url: /local/folder-card.js
+    type: module
+
+```
+
+## Usage
+
+```yaml
+type: "custom:folder-card"
+title: "My file list"
+icon: "mdi:folder"
+entity: sensor.folder
+tap_action:
+  action: "call-service"
+  service: script.use_file
+```
+
 ## Options
 
 | Name              | Type    | Requirement  | Description                                 | Default             |
