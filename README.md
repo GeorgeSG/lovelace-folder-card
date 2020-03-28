@@ -17,7 +17,7 @@ If you define a `call-service` tap_action, the service will receive a `file` var
 
 ## Installation
 
-Follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins).
+Add as a Custom repository in [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins).
 
 ```yaml
 resources:
