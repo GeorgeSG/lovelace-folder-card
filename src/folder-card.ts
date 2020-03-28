@@ -106,7 +106,7 @@ export class FolderCard extends LitElement {
     `;
   }
 
-  private renderEmpty() {
+  private renderEmpty(): TemplateResult {
     return html`
       <ha-card>
         ${this.renderHeader()}
@@ -139,7 +139,7 @@ export class FolderCard extends LitElement {
   /**
    * Inserts a "file" parameter in service_data for a "call-service" action.
    */
-  private buildActionConfig(file) {
+  private buildActionConfig(file): object {
     let config = {
       entity: this.config?.entity,
       tap_action: Object.assign({}, this.config?.tap_action)
