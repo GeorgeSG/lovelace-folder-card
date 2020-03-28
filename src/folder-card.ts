@@ -137,32 +137,18 @@ export class FolderCard extends LitElement {
   }
 
   /**
-   * Inserts a "file" parameter in service_data for any "call-service" action.
+   * Inserts a "file" parameter in service_data for a "call-service" action.
    */
   private buildActionConfig(file) {
     let config = {
       entity: this.config?.entity,
-      hold_action: Object.assign({}, this.config?.hold_action),
-      tap_action: Object.assign({}, this.config?.tap_action),
-      double_tap_action: Object.assign({}, this.config?.double_tap_action)
+      tap_action: Object.assign({}, this.config?.tap_action)
     };
 
     const fileObj = { file };
 
     if (config.tap_action?.action === 'call-service') {
       config.tap_action.service_data = Object.assign({}, config.tap_action.service_data, fileObj);
-    }
-
-    if (config.hold_action?.action === 'call-service') {
-      config.hold_action.service_data = Object.assign({}, config.hold_action.service_data, fileObj);
-    }
-
-    if (config.double_tap_action?.action === 'call-service') {
-      config.double_tap_action.service_data = Object.assign(
-        {},
-        config.double_tap_action.service_data,
-        fileObj
-      );
     }
 
     return config;
