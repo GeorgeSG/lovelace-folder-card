@@ -4,6 +4,7 @@
 [![License][license-shield]](LICENSE)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
+[![hacs_badge][hacs-shield]][hacs]
 
 
 ## Overview
@@ -68,3 +69,5 @@ tap_action:
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=flat-square
 [releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg?style=flat-square
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
+[hacs-shield]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=flat-square
+[hacs]: https://github.com/custom-components/hacs
