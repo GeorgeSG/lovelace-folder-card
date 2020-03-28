@@ -1,11 +1,18 @@
 # Folder Card by [@georgesg](https://www.github.com/georgesg)
 
-This is a [Lovelace](https://www.home-assistant.io/lovelace) card for [Home Assistant](https://www.home-assistant.io/) that displays files listed by a [Folder sensor](https://www.home-assistant.io/integrations/folder/).
-
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE.md)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
+
+
+## Overview
+
+This is a [Lovelace](https://www.home-assistant.io/lovelace) card for [Home Assistant](https://www.home-assistant.io/) that displays files listed by a [Folder sensor](https://www.home-assistant.io/integrations/folder/).
+
+If you define a `call-service` tap_action, the service will receive a `file` variable with the file path of the selected file.
+
+![example](assets/example.png)
 
 
 ## Options
