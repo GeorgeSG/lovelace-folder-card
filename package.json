@@ -1,0 +1,36 @@
+{
+  "name": "folder-card",
+  "version": "0.0.1",
+  "author": "Georgi Gardev <georgi@gardev.com>",
+  "description": "Lovelace folder-card",
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "hass",
+    "automation",
+    "lovelace",
+    "custom-cards"
+  ],
+  "license": "MIT",
+  "module": "folder-card.js",
+  "repository": "git@github.com:GeorgeSG/folder-card.git",
+  "scripts": {
+    "dev": "rollup -c rollup.config.js --watch",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "custom-card-helpers": "^1.5.0",
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^4.0.0",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  }
+}
