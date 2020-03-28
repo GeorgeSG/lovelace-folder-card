@@ -41,13 +41,13 @@ tap_action:
 
 ## Options
 
-| Name              | Type    | Requirement  | Description                                 | Default             |
-| ----------------- | ------- | ------------ | ------------------------------------------- | ------------------- |
-| type              | string  | **Required** | `custom:folder-card`                        |                     |
-| title             | string  | **Optional** | Card name                                   | `none`              |
-| icon              | string  | **Optional** | Card icon                                   | `none`              |
+| Name              | Type    | Requirement  | Description                                 | Default                  |
+| ----------------- | ------- | ------------ | ------------------------------------------- | -------------------------|
+| type              | string  | **Required** | `custom:folder-card`                        |                          |
+| title             | string  | **Optional** | Card name                                   | Folder's `friendly_name` |
+| icon              | string  | **Optional** | Card icon                                   | `none`                   |
 | entity            | string  | **Optional** | [Folder](https://www.home-assistant.io/integrations/folder/) sensor entity | `none`              |
-| tap_action        | object  | **Optional** | Action to take on tap                       | `none`              |
+| tap_action        | object  | **Optional** | Action to take on tap                       | `none`                   |
 
 ## Action Options
 
