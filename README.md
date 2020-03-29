@@ -5,6 +5,7 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 [![hacs_badge][hacs-shield]][hacs]
+![][file-size-shield]
 
 
 ## Overview
@@ -71,3 +72,4 @@ tap_action:
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
 [hacs-shield]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=flat-square
 [hacs]: https://github.com/custom-components/hacs
+[file-size-shield]: https://img.shields.io/github/size/GeorgeSG/lovelace-folder-card/dist/folder-card.js?style=flat-square
