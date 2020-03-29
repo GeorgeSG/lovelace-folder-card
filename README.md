@@ -62,10 +62,10 @@ tap_action:
 | repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                                                             | `none`      |
 
 
-[commits-shield]: https://img.shields.io/github/commit-activity/y/GeorgeSG/lovelace-folder-card.svg?style=flat-square
+[commits-shield]: https://img.shields.io/github/commit-activity/y/GeorgeSG/lovelace-folder-card?style=flat-square
 [commits]: https://github.com/GeorgeSG/lovelace-folder-card/commits/master
 [devcontainer]: https://code.visualstudio.com/docs/remote/containers
-[license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card?style=flat-square
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=flat-square
 [releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg?style=flat-square
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
