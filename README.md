@@ -28,12 +28,12 @@ resources:
 ## Usage
 
 ```yaml
-type: 'custom:folder-card'
-title: 'My file list'
-icon: 'mdi:folder'
+type: "custom:folder-card"
+title: "My file list"
+icon: "mdi:folder"
 entity: sensor.folder
 tap_action:
-  action: 'call-service'
+  action: "call-service"
   service: script.use_file
 ```
 
