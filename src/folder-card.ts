@@ -116,8 +116,8 @@ export class FolderCard extends LitElement {
   private get files(): string[] {
     let files: string[] = this.folderEntity?.attributes.file_list;
 
-    if (!this.config?.show_hidden) {
-      files = files.filter((fileName) => fileName.indexOf('.') !== -1);
+    if (Boolean(this.config?.show_hidden) === false) {
+      files = files.filter((filePath) => this.getFileName(filePath).indexOf('.') !== -1);
     }
 
     if (this.config?.sort) {
