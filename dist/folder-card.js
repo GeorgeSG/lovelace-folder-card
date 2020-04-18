@@ -204,7 +204,7 @@ found at http://polymer.github.io/PATENTS.txt
           ${this.config.icon&&ot` <ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
           ${null!==(e=this.config.title)&&void 0!==e?e:this.folderEntity.attributes.friendly_name}
         </div>
-        ${this.config.show_count&&ot`<div class="count">(Total: ${this.totalFileCount})</div>`}
+        ${this.config.show_count&&ot`<div class="count">Total: ${this.totalFileCount}</div>`}
       </div>
     `:null}renderWarning(t){return ot`
       <ha-card>
@@ -222,7 +222,6 @@ found at http://polymer.github.io/PATENTS.txt
 
       .card-header .count {
         margin-left: auto;
-        font-style: italic;
         font-size: var(--paper-font-subhead_-_font-size);
       }
 
