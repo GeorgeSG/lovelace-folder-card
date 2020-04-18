@@ -4,6 +4,7 @@ export interface FolderCardConfig {
   entity: string;
   title?: string;
   icon?: string;
-  call_service: string;
   tap_action?: ActionConfig;
+  sort?: 'ascending' | 'descending';
+  max_count?: number;
 }

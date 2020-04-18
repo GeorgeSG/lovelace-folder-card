@@ -6,7 +6,7 @@ import {
   html,
   LitElement,
   property,
-  TemplateResult
+  TemplateResult,
 } from 'lit-element';
 import { CARD_VERSION } from './const';
 import { FolderCardConfig } from './types';
@@ -42,7 +42,7 @@ export class FolderCard extends LitElement {
     return html`
       <ha-card>
         ${this.renderHeader()}
-        ${this.folderEntity.attributes.file_list.map(file => this.renderFile(file))}
+        ${this.folderEntity.attributes.file_list.map((file) => this.renderFile(file))}
       </ha-card>
     `;
   }
@@ -61,6 +61,26 @@ export class FolderCard extends LitElement {
 
   getCardSize(): number {
     return 6;
+  }
+
+  get files(): string[] {
+    let files: string[] = this.folderEntity?.attributes.file_list;
+
+    if (this.config?.sort !== undefined) {
+      files = files.sort((f1, f2) => {
+        if (this.config?.sort === 'ascending') {
+          return f1 > f2 ? 1 : -1;
+        } else {
+          return f1 > f2 ? -1 : 1;
+        }
+      });
+    }
+
+    if (this.config?.max_count) {
+      files = files.slice(0, this.config.max_count);
+    }
+
+    return files;
   }
 
   private renderFile(file): TemplateResult {
@@ -88,10 +108,7 @@ export class FolderCard extends LitElement {
     return html`
       <div class="card-header">
         <div class="name">
-          ${this.config.icon &&
-            html`
-              <ha-icon class="icon" icon=${this.config.icon}></ha-icon>
-            `}
+          ${this.config.icon && html` <ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
           ${this.config.title ?? this.folderEntity!.attributes.friendly_name}
         </div>
       </div>
@@ -142,7 +159,7 @@ export class FolderCard extends LitElement {
   private buildActionConfig(file): object {
     let config = {
       entity: this.config?.entity,
-      tap_action: Object.assign({}, this.config?.tap_action)
+      tap_action: Object.assign({}, this.config?.tap_action),
     };
 
     const fileObj = { file };
