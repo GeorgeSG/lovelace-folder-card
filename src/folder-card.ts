@@ -91,7 +91,7 @@ export class FolderCard extends LitElement {
           ${this.config.icon && html` <ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
           ${this.config.title ?? this.folderEntity!.attributes.friendly_name}
         </div>
-        ${this.config.show_count && html`<div class="count">(${this.totalFileCount})</div>`}
+        ${this.config.show_count && html`<div class="count">(Total: ${this.totalFileCount})</div>`}
       </div>
     `;
   }
@@ -184,6 +184,8 @@ export class FolderCard extends LitElement {
 
       .card-header .count {
         margin-left: auto;
+        font-style: italic;
+        font-size: var(--paper-font-subhead_-_font-size);
       }
 
       .folder-item {
