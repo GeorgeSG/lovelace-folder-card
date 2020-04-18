@@ -8,4 +8,5 @@ export interface FolderCardConfig {
   sort?: 'ascending' | 'descending';
   max_count?: number;
   show_count?: boolean;
+  show_hidden?: boolean;
 }

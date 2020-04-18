@@ -39,16 +39,17 @@ tap_action:
 
 ## Options
 
-| Name       | Type    | Requirement  | Description                                                                | Default                      |
-| ---------- | ------- | ------------ | -------------------------------------------------------------------------- | ---------------------------- |
-| type       | string  | **Required** | `custom:folder-card`                                                       |                              |
-| title      | string  | **Optional** | Card name                                                                  | Folder's `friendly_name`     |
-| icon       | string  | **Optional** | Card icon                                                                  | `none`                       |
-| entity     | string  | **Optional** | [Folder](https://www.home-assistant.io/integrations/folder/) sensor entity | `none`                       |
-| tap_action | object  | **Optional** | Action to take on tap                                                      | `none`                       |
-| sort       | string  | **Optional** | `'ascending'` or `'descending'`                                            | `none` - as sorted in sensor |
-| max_count  | number  | **Optional** | Number of files to show. Applied after sort                                | `none` - show all files      |
-| show_count | boolean | **Optional** | Show total file count in header                                            | `false`                      |
+| Name        | Type    | Requirement  | Description                                                                | Default                      |
+| ----------- | ------- | ------------ | -------------------------------------------------------------------------- | ---------------------------- |
+| type        | string  | **Required** | `custom:folder-card`                                                       |                              |
+| title       | string  | **Optional** | Card name                                                                  | Folder's `friendly_name`     |
+| icon        | string  | **Optional** | Card icon                                                                  | `none`                       |
+| entity      | string  | **Optional** | [Folder](https://www.home-assistant.io/integrations/folder/) sensor entity | `none`                       |
+| tap_action  | object  | **Optional** | Action to take on tap                                                      | `none`                       |
+| sort        | string  | **Optional** | `'ascending'` or `'descending'`                                            | `none` - as sorted in sensor |
+| max_count   | number  | **Optional** | Number of files to show. Applied after sort                                | `none` - show all files      |
+| show_count  | boolean | **Optional** | Show total file count in header                                            | `false`                      |
+| show_hidden | boolean | **Optional** | Show files without extension. Set to `true` to hide subfolders             | `false`                      |
 
 ## Action Options
 
