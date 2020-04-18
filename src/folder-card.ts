@@ -92,7 +92,7 @@ export class FolderCard extends LitElement {
           ${this.config.title ?? this.folderEntity!.attributes.friendly_name}
         </div>
         <div class="count">
-          (${this.totalFileCount})
+          ${this.config.show_count && `(${this.totalFileCount})`}
         </div>
       </div>
     `;

@@ -7,4 +7,5 @@ export interface FolderCardConfig {
   tap_action?: ActionConfig;
   sort?: 'ascending' | 'descending';
   max_count?: number;
+  show_count?: boolean;
 }
