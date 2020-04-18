@@ -42,7 +42,7 @@ export class FolderCard extends LitElement {
     return html`
       <ha-card>
         ${this.renderHeader()}
-        ${this.folderEntity.attributes.file_list.map((file) => this.renderFile(file))}
+        ${this.files.map((file) => this.renderFile(file))}
       </ha-card>
     `;
   }
