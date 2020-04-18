@@ -63,26 +63,6 @@ export class FolderCard extends LitElement {
     return 6;
   }
 
-  get files(): string[] {
-    let files: string[] = this.folderEntity?.attributes.file_list;
-
-    if (this.config?.sort !== undefined) {
-      files = files.sort((f1, f2) => {
-        if (this.config?.sort === 'ascending') {
-          return f1 > f2 ? 1 : -1;
-        } else {
-          return f1 > f2 ? -1 : 1;
-        }
-      });
-    }
-
-    if (this.config?.max_count) {
-      files = files.slice(0, this.config.max_count);
-    }
-
-    return files;
-  }
-
   private renderFile(file): TemplateResult {
     return html`
       <paper-item class="folder-item">
@@ -111,6 +91,9 @@ export class FolderCard extends LitElement {
           ${this.config.icon && html` <ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
           ${this.config.title ?? this.folderEntity!.attributes.friendly_name}
         </div>
+        <div class="count">
+          (${this.totalFileCount})
+        </div>
       </div>
     `;
   }
@@ -130,6 +113,30 @@ export class FolderCard extends LitElement {
         <paper-item>The folder is empty.</paper-item>
       </ha-card>
     `;
+  }
+
+  private get files(): string[] {
+    let files: string[] = this.folderEntity?.attributes.file_list;
+
+    if (this.config?.sort !== undefined) {
+      files = files.sort((f1, f2) => {
+        if (this.config?.sort === 'ascending') {
+          return f1 > f2 ? 1 : -1;
+        } else {
+          return f1 > f2 ? -1 : 1;
+        }
+      });
+    }
+
+    if (this.config?.max_count) {
+      files = files.slice(0, this.config.max_count);
+    }
+
+    return files;
+  }
+
+  private get totalFileCount(): number {
+    return this.folderEntity?.attributes.file_list.length ?? 0;
   }
 
   private get folderEntity() {
@@ -173,6 +180,14 @@ export class FolderCard extends LitElement {
 
   static get styles(): CSSResult {
     return css`
+      .card-header {
+        display: flex;
+      }
+
+      .card-header .count {
+        margin-left: auto;
+      }
+
       .folder-item {
         cursor: pointer;
       }
