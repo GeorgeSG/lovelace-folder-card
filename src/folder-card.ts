@@ -65,13 +65,9 @@ export class FolderCard extends LitElement {
 
   private renderFile(file): TemplateResult {
     return html`
-      <paper-item class="folder-item">
-        <paper-item-body>
-          <ha-icon class="icon" icon="mdi:file"></ha-icon>
-        </paper-item-body>
-        <paper-item-body @click=${() => this.selectFile(file)}>
-          ${this.getFileName(file)}
-        </paper-item-body>
+      <paper-item class="folder-item" @click=${() => this.selectFile(file)}>
+        <paper-item-body><ha-icon class="icon" icon="mdi:file"></ha-icon></paper-item-body>
+        <paper-item-body>${this.getFileName(file)}</paper-item-body>
       </paper-item>
     `;
   }
