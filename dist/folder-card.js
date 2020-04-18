@@ -190,13 +190,9 @@ found at http://polymer.github.io/PATENTS.txt
         ${this.files.map(t=>this.renderFile(t))}
       </ha-card>
     `:this.renderWarning("The entity you passed doesn't appear to be a folder sensor!"):this.renderWarning("The entity could not be found!"):null}setConfig(t){if(!t)throw new Error("Invalid configuration");if(!t.entity)throw new Error("You need to set an entity");this.config=t}getCardSize(){return 6}renderFile(t){return ot`
-      <paper-item class="folder-item">
-        <paper-item-body>
-          <ha-icon class="icon" icon="mdi:file"></ha-icon>
-        </paper-item-body>
-        <paper-item-body @click=${()=>this.selectFile(t)}>
-          ${this.getFileName(t)}
-        </paper-item-body>
+      <paper-item class="folder-item" @click=${()=>this.selectFile(t)}>
+        <paper-item-body><ha-icon class="icon" icon="mdi:file"></ha-icon></paper-item-body>
+        <paper-item-body>${this.getFileName(t)}</paper-item-body>
       </paper-item>
     `}renderHeader(){var t,e;return this.config&&(this.config.title||(null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.friendly_name))?ot`
       <div class="card-header">
