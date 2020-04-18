@@ -35,7 +35,7 @@ export class FolderCard extends LitElement {
       return this.renderWarning("The entity you passed doesn't appear to be a folder sensor!");
     }
 
-    if (this.folderEntity.attributes.file_list.length === 0) {
+    if (this.files.length === 0) {
       return this.renderEmpty();
     }
 
@@ -108,7 +108,7 @@ export class FolderCard extends LitElement {
     return html`
       <ha-card>
         ${this.renderHeader()}
-        <paper-item>The folder is empty.</paper-item>
+        <paper-item>There are no files to show.</paper-item>
       </ha-card>
     `;
   }
