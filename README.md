@@ -47,7 +47,7 @@ tap_action:
 | entity     | string | **Optional** | [Folder](https://www.home-assistant.io/integrations/folder/) sensor entity | `none`                       |
 | tap_action | object | **Optional** | Action to take on tap                                                      | `none`                       |
 | sort       | string | **Optional** | `'ascending'` or `'descending'`                                            | `none` - as sorted in sensor |
-| max_cound  | number | **Optional** | Number of files to show. Applied after sort                                | `none` - show all files      |
+| max_count  | number | **Optional** | Number of files to show. Applied after sort                                | `none` - show all files      |
 
 ## Action Options
 
