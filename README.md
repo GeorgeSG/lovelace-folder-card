@@ -3,9 +3,9 @@
 [![hacs_badge][hacs-shield]][hacs]
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
-![Project Maintenance][maintenance-shield]
+[![Project Maintenance][maintenance-shield]](https://github.com/GeorgeSG/lovelace-folder-card)
 [![GitHub Activity][commits-shield]][commits]
-![][file-size-shield]
+[![File Size][file-size-shield]](./dist/folder-card.js)
 
 ## Overview
 
