@@ -2,10 +2,10 @@
 
 [![hacs_badge][hacs-shield]][hacs]
 [![GitHub Release][releases-shield]][releases]
-[![License][license-shield]](LICENSE)
-[![Project Maintenance][maintenance-shield]](https://github.com/GeorgeSG/lovelace-folder-card)
+[![License][license-shield]][license]
+[![Project Maintenance][maintenance-shield]][maintenance]
 [![GitHub Activity][commits-shield]][commits]
-[![File Size][file-size-shield]](./dist/folder-card.js)
+[![File Size][file-size-shield]][file-size]
 
 ## Overview
 
@@ -65,11 +65,13 @@ tap_action:
 
 [commits-shield]: https://img.shields.io/github/commit-activity/y/GeorgeSG/lovelace-folder-card?style=flat-square
 [commits]: https://github.com/GeorgeSG/lovelace-folder-card/commits/master
-[devcontainer]: https://code.visualstudio.com/docs/remote/containers
 [license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card?style=flat-square
+[license]: https://github.com/GeorgeSG/lovelace-folder-card/blob/master/LICENSE
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=flat-square
+[maintenance]: https://github.com/GeorgeSG/lovelace-folder-card
 [releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg?style=flat-square
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
 [hacs-shield]: https://img.shields.io/badge/HACS-Default-green.svg?style=flat-square
 [hacs]: https://github.com/custom-components/hacs
 [file-size-shield]: https://img.shields.io/github/size/GeorgeSG/lovelace-folder-card/dist/folder-card.js?style=flat-square
+[file-size]: https://github.com/GeorgeSG/lovelace-folder-card/blob/master/dist/folder-card.js
