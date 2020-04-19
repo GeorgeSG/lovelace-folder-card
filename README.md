@@ -1,10 +1,10 @@
 # Folder Card by [@georgesg](https://www.github.com/georgesg)
 
+[![hacs_badge][hacs-shield]][hacs]
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
-[![hacs_badge][hacs-shield]][hacs]
 ![][file-size-shield]
 
 ## Overview
@@ -17,7 +17,7 @@ If you define a `call-service` tap_action, the service will receive a `file` var
 
 ## Installation
 
-Add as a Custom repository in [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins).
+Install using [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins)
 
 ```yaml
 resources:
@@ -70,6 +70,6 @@ tap_action:
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=flat-square
 [releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg?style=flat-square
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
-[hacs-shield]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=flat-square
+[hacs-shield]: https://img.shields.io/badge/HACS-Default-green.svg?style=flat-square
 [hacs]: https://github.com/custom-components/hacs
 [file-size-shield]: https://img.shields.io/github/size/GeorgeSG/lovelace-folder-card/dist/folder-card.js?style=flat-square
