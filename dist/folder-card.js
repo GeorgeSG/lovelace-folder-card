@@ -12,7 +12,7 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
-function t(t,e,n,i){var s,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,n):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,i);else for(var a=t.length-1;a>=0;a--)(s=t[a])&&(o=(r<3?s(o):r>3?s(e,n,o):s(e,n))||o);return r>3&&o&&Object.defineProperty(e,n,o),o}var e=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'/g,n="[^\\s]+",i=/\[([^]*?)\]/gm;function s(t,e){for(var n=[],i=0,s=t.length;i<s;i++)n.push(t[i].substr(0,e));return n}var r=function(t){return function(e,n){var i=n[t].map((function(t){return t.toLowerCase()})).indexOf(e.toLowerCase());return i>-1?i:null}};function o(t){for(var e=[],n=1;n<arguments.length;n++)e[n-1]=arguments[n];for(var i=0,s=e;i<s.length;i++){var r=s[i];for(var o in r)t[o]=r[o]}return t}var a=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],l=["January","February","March","April","May","June","July","August","September","October","November","December"],c=s(l,3),d={dayNamesShort:s(a,3),dayNames:a,monthNamesShort:c,monthNames:l,amPm:["am","pm"],DoFn:function(t){return t+["th","st","nd","rd"][t%10>3?0:(t-t%10!=10?1:0)*t%10]}},h=o({},d),u=function(t,e){for(void 0===e&&(e=2),t=String(t);t.length<e;)t="0"+t;return t},p={D:function(t){return String(t.getDate())},DD:function(t){return u(t.getDate())},Do:function(t,e){return e.DoFn(t.getDate())},d:function(t){return String(t.getDay())},dd:function(t){return u(t.getDay())},ddd:function(t,e){return e.dayNamesShort[t.getDay()]},dddd:function(t,e){return e.dayNames[t.getDay()]},M:function(t){return String(t.getMonth()+1)},MM:function(t){return u(t.getMonth()+1)},MMM:function(t,e){return e.monthNamesShort[t.getMonth()]},MMMM:function(t,e){return e.monthNames[t.getMonth()]},YY:function(t){return u(String(t.getFullYear()),4).substr(2)},YYYY:function(t){return u(t.getFullYear(),4)},h:function(t){return String(t.getHours()%12||12)},hh:function(t){return u(t.getHours()%12||12)},H:function(t){return String(t.getHours())},HH:function(t){return u(t.getHours())},m:function(t){return String(t.getMinutes())},mm:function(t){return u(t.getMinutes())},s:function(t){return String(t.getSeconds())},ss:function(t){return u(t.getSeconds())},S:function(t){return String(Math.round(t.getMilliseconds()/100))},SS:function(t){return u(Math.round(t.getMilliseconds()/10),2)},SSS:function(t){return u(t.getMilliseconds(),3)},a:function(t,e){return t.getHours()<12?e.amPm[0]:e.amPm[1]},A:function(t,e){return t.getHours()<12?e.amPm[0].toUpperCase():e.amPm[1].toUpperCase()},ZZ:function(t){var e=t.getTimezoneOffset();return(e>0?"-":"+")+u(100*Math.floor(Math.abs(e)/60)+Math.abs(e)%60,4)},Z:function(t){var e=t.getTimezoneOffset();return(e>0?"-":"+")+u(Math.floor(Math.abs(e)/60),2)+":"+u(Math.abs(e)%60,2)}},f=function(t){return+t-1},m=[null,"[1-9]\\d?"],g=[null,n],_=["isPm",n,function(t,e){var n=t.toLowerCase();return n===e.amPm[0]?0:n===e.amPm[1]?1:null}],y=["timezoneOffset","[^\\s]*?[\\+\\-]\\d\\d:?\\d\\d|[^\\s]*?Z?",function(t){var e=(t+"").match(/([+-]|\d\d)/gi);if(e){var n=60*+e[1]+parseInt(e[2],10);return"+"===e[0]?n:-n}return 0}],v=(r("monthNamesShort"),r("monthNames"),{default:"ddd MMM DD YYYY HH:mm:ss",shortDate:"M/D/YY",mediumDate:"MMM D, YYYY",longDate:"MMMM D, YYYY",fullDate:"dddd, MMMM D, YYYY",isoDate:"YYYY-MM-DD",isoDateTime:"YYYY-MM-DDTHH:mm:ssZ",shortTime:"HH:mm",mediumTime:"HH:mm:ss",longTime:"HH:mm:ss.SSS"});var S=function(t,n,s){if(void 0===n&&(n=v.default),void 0===s&&(s={}),"number"==typeof t&&(t=new Date(t)),"[object Date]"!==Object.prototype.toString.call(t)||isNaN(t.getTime()))throw new Error("Invalid Date pass to format");var r=[];n=(n=v[n]||n).replace(i,(function(t,e){return r.push(e),"@@@"}));var a=o(o({},h),s);return(n=n.replace(e,(function(e){return p[e](t,a)}))).replace(/@@@/g,(function(){return r.shift()}))};(function(){try{(new Date).toLocaleDateString("i")}catch(t){return"RangeError"===t.name}})(),function(){try{(new Date).toLocaleString("i")}catch(t){return"RangeError"===t.name}}(),function(){try{(new Date).toLocaleTimeString("i")}catch(t){return"RangeError"===t.name}}();var b=["closed","locked","off"],w=function(t,e,n,i){i=i||{},n=null==n?{}:n;var s=new Event(e,{bubbles:void 0===i.bubbles||i.bubbles,cancelable:Boolean(i.cancelable),composed:void 0===i.composed||i.composed});return s.detail=n,t.dispatchEvent(s),s},x=function(t){w(window,"haptic",t)},P=function(t,e,n,i,s){var r;if(s&&n.double_tap_action?r=n.double_tap_action:i&&n.hold_action?r=n.hold_action:!i&&n.tap_action&&(r=n.tap_action),r||(r={action:"more-info"}),!r.confirmation||r.confirmation.exemptions&&r.confirmation.exemptions.some((function(t){return t.user===e.user.id}))||confirm(r.confirmation.text||"Are you sure you want to "+r.action+"?"))switch(r.action){case"more-info":(r.entity||n.entity||n.camera_image)&&(w(t,"hass-more-info",{entityId:r.entity?r.entity:n.entity?n.entity:n.camera_image}),r.haptic&&x(r.haptic));break;case"navigate":r.navigation_path&&(function(t,e,n){void 0===n&&(n=!1),n?history.replaceState(null,"",e):history.pushState(null,"",e),w(window,"location-changed",{replace:n})}(0,r.navigation_path),r.haptic&&x(r.haptic));break;case"url":r.url_path&&window.open(r.url_path),r.haptic&&x(r.haptic);break;case"toggle":n.entity&&(function(t,e){(function(t,e,n){void 0===n&&(n=!0);var i,s=function(t){return t.substr(0,t.indexOf("."))}(e),r="group"===s?"homeassistant":s;switch(s){case"lock":i=n?"unlock":"lock";break;case"cover":i=n?"open_cover":"close_cover";break;default:i=n?"turn_on":"turn_off"}t.callService(r,i,{entity_id:e})})(t,e,b.includes(t.states[e].state))}(e,n.entity),r.haptic&&x(r.haptic));break;case"call-service":if(!r.service)return;var o=r.service.split(".",2),a=o[0],l=o[1],c=Object.assign({},r.service_data);"entity"===c.entity_id&&(c.entity_id=n.entity),e.callService(a,l,c),r.haptic&&x(r.haptic)}};
+function t(t,e,n,i){var s,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,n):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,i);else for(var a=t.length-1;a>=0;a--)(s=t[a])&&(o=(r<3?s(o):r>3?s(e,n,o):s(e,n))||o);return r>3&&o&&Object.defineProperty(e,n,o),o}var e=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'/g,n="[^\\s]+",i=/\[([^]*?)\]/gm;function s(t,e){for(var n=[],i=0,s=t.length;i<s;i++)n.push(t[i].substr(0,e));return n}var r=function(t){return function(e,n){var i=n[t].map((function(t){return t.toLowerCase()})).indexOf(e.toLowerCase());return i>-1?i:null}};function o(t){for(var e=[],n=1;n<arguments.length;n++)e[n-1]=arguments[n];for(var i=0,s=e;i<s.length;i++){var r=s[i];for(var o in r)t[o]=r[o]}return t}var a=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],l=["January","February","March","April","May","June","July","August","September","October","November","December"],c=s(l,3),d={dayNamesShort:s(a,3),dayNames:a,monthNamesShort:c,monthNames:l,amPm:["am","pm"],DoFn:function(t){return t+["th","st","nd","rd"][t%10>3?0:(t-t%10!=10?1:0)*t%10]}},h=o({},d),u=function(t,e){for(void 0===e&&(e=2),t=String(t);t.length<e;)t="0"+t;return t},p={D:function(t){return String(t.getDate())},DD:function(t){return u(t.getDate())},Do:function(t,e){return e.DoFn(t.getDate())},d:function(t){return String(t.getDay())},dd:function(t){return u(t.getDay())},ddd:function(t,e){return e.dayNamesShort[t.getDay()]},dddd:function(t,e){return e.dayNames[t.getDay()]},M:function(t){return String(t.getMonth()+1)},MM:function(t){return u(t.getMonth()+1)},MMM:function(t,e){return e.monthNamesShort[t.getMonth()]},MMMM:function(t,e){return e.monthNames[t.getMonth()]},YY:function(t){return u(String(t.getFullYear()),4).substr(2)},YYYY:function(t){return u(t.getFullYear(),4)},h:function(t){return String(t.getHours()%12||12)},hh:function(t){return u(t.getHours()%12||12)},H:function(t){return String(t.getHours())},HH:function(t){return u(t.getHours())},m:function(t){return String(t.getMinutes())},mm:function(t){return u(t.getMinutes())},s:function(t){return String(t.getSeconds())},ss:function(t){return u(t.getSeconds())},S:function(t){return String(Math.round(t.getMilliseconds()/100))},SS:function(t){return u(Math.round(t.getMilliseconds()/10),2)},SSS:function(t){return u(t.getMilliseconds(),3)},a:function(t,e){return t.getHours()<12?e.amPm[0]:e.amPm[1]},A:function(t,e){return t.getHours()<12?e.amPm[0].toUpperCase():e.amPm[1].toUpperCase()},ZZ:function(t){var e=t.getTimezoneOffset();return(e>0?"-":"+")+u(100*Math.floor(Math.abs(e)/60)+Math.abs(e)%60,4)},Z:function(t){var e=t.getTimezoneOffset();return(e>0?"-":"+")+u(Math.floor(Math.abs(e)/60),2)+":"+u(Math.abs(e)%60,2)}},f=function(t){return+t-1},m=[null,"[1-9]\\d?"],g=[null,n],y=["isPm",n,function(t,e){var n=t.toLowerCase();return n===e.amPm[0]?0:n===e.amPm[1]?1:null}],_=["timezoneOffset","[^\\s]*?[\\+\\-]\\d\\d:?\\d\\d|[^\\s]*?Z?",function(t){var e=(t+"").match(/([+-]|\d\d)/gi);if(e){var n=60*+e[1]+parseInt(e[2],10);return"+"===e[0]?n:-n}return 0}],v=(r("monthNamesShort"),r("monthNames"),{default:"ddd MMM DD YYYY HH:mm:ss",shortDate:"M/D/YY",mediumDate:"MMM D, YYYY",longDate:"MMMM D, YYYY",fullDate:"dddd, MMMM D, YYYY",isoDate:"YYYY-MM-DD",isoDateTime:"YYYY-MM-DDTHH:mm:ssZ",shortTime:"HH:mm",mediumTime:"HH:mm:ss",longTime:"HH:mm:ss.SSS"});var S=function(t,n,s){if(void 0===n&&(n=v.default),void 0===s&&(s={}),"number"==typeof t&&(t=new Date(t)),"[object Date]"!==Object.prototype.toString.call(t)||isNaN(t.getTime()))throw new Error("Invalid Date pass to format");var r=[];n=(n=v[n]||n).replace(i,(function(t,e){return r.push(e),"@@@"}));var a=o(o({},h),s);return(n=n.replace(e,(function(e){return p[e](t,a)}))).replace(/@@@/g,(function(){return r.shift()}))};(function(){try{(new Date).toLocaleDateString("i")}catch(t){return"RangeError"===t.name}})(),function(){try{(new Date).toLocaleString("i")}catch(t){return"RangeError"===t.name}}(),function(){try{(new Date).toLocaleTimeString("i")}catch(t){return"RangeError"===t.name}}();var w=["closed","locked","off"],b=function(t,e,n,i){i=i||{},n=null==n?{}:n;var s=new Event(e,{bubbles:void 0===i.bubbles||i.bubbles,cancelable:Boolean(i.cancelable),composed:void 0===i.composed||i.composed});return s.detail=n,t.dispatchEvent(s),s},x=function(t){b(window,"haptic",t)},P=function(t,e,n,i,s){var r;if(s&&n.double_tap_action?r=n.double_tap_action:i&&n.hold_action?r=n.hold_action:!i&&n.tap_action&&(r=n.tap_action),r||(r={action:"more-info"}),!r.confirmation||r.confirmation.exemptions&&r.confirmation.exemptions.some((function(t){return t.user===e.user.id}))||confirm(r.confirmation.text||"Are you sure you want to "+r.action+"?"))switch(r.action){case"more-info":(r.entity||n.entity||n.camera_image)&&(b(t,"hass-more-info",{entityId:r.entity?r.entity:n.entity?n.entity:n.camera_image}),r.haptic&&x(r.haptic));break;case"navigate":r.navigation_path&&(function(t,e,n){void 0===n&&(n=!1),n?history.replaceState(null,"",e):history.pushState(null,"",e),b(window,"location-changed",{replace:n})}(0,r.navigation_path),r.haptic&&x(r.haptic));break;case"url":r.url_path&&window.open(r.url_path),r.haptic&&x(r.haptic);break;case"toggle":n.entity&&(function(t,e){(function(t,e,n){void 0===n&&(n=!0);var i,s=function(t){return t.substr(0,t.indexOf("."))}(e),r="group"===s?"homeassistant":s;switch(s){case"lock":i=n?"unlock":"lock";break;case"cover":i=n?"open_cover":"close_cover";break;default:i=n?"turn_on":"turn_off"}t.callService(r,i,{entity_id:e})})(t,e,w.includes(t.states[e].state))}(e,n.entity),r.haptic&&x(r.haptic));break;case"call-service":if(!r.service)return;var o=r.service.split(".",2),a=o[0],l=o[1],c=Object.assign({},r.service_data);"entity"===c.entity_id&&(c.entity_id=n.entity),e.callService(a,l,c),r.haptic&&x(r.haptic)}};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -160,7 +160,7 @@ class{handleAttributeExpressions(t,e,n,i){const s=e[0];if("."===s){return new K(
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const _t=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?Object.assign(Object.assign({},e),{finisher(n){n.createProperty(e.key,t)}}):{kind:"field",key:Symbol(),placement:"own",descriptor:{},initializer(){"function"==typeof e.initializer&&(this[e.key]=e.initializer.call(this))},finisher(n){n.createProperty(e.key,t)}};function yt(t){return(e,n)=>void 0!==n?((t,e,n)=>{e.constructor.createProperty(n,t)})(t,e,n):_t(t,e)}
+const yt=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?Object.assign(Object.assign({},e),{finisher(n){n.createProperty(e.key,t)}}):{kind:"field",key:Symbol(),placement:"own",descriptor:{},initializer(){"function"==typeof e.initializer&&(this[e.key]=e.initializer.call(this))},finisher(n){n.createProperty(e.key,t)}};function _t(t){return(e,n)=>void 0!==n?((t,e,n)=>{e.constructor.createProperty(n,t)})(t,e,n):yt(t,e)}
 /**
 @license
 Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -170,7 +170,7 @@ http://polymer.github.io/AUTHORS.txt The complete set of contributors may be
 found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
 part of the polymer project is also subject to an additional IP rights grant
 found at http://polymer.github.io/PATENTS.txt
-*/const vt="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,St=Symbol();class bt{constructor(t,e){if(e!==St)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t}get styleSheet(){return void 0===this._styleSheet&&(vt?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const wt=(t,...e)=>{const n=e.reduce((e,n,i)=>e+(t=>{if(t instanceof bt)return t.cssText;if("number"==typeof t)return t;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${t}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(n)+t[i+1],t[0]);return new bt(n,St)};
+*/const vt="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,St=Symbol();class wt{constructor(t,e){if(e!==St)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t}get styleSheet(){return void 0===this._styleSheet&&(vt?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -184,53 +184,87 @@ found at http://polymer.github.io/PATENTS.txt
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const xt={};class Pt extends gt{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(void 0===t)this._styles=[];else if(Array.isArray(t)){const e=(t,n)=>t.reduceRight((t,n)=>Array.isArray(n)?e(n,t):(t.add(n),t),n),n=e(t,new Set),i=[];n.forEach(t=>i.unshift(t)),this._styles=i}else this._styles=[t]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?vt?this.renderRoot.adoptedStyleSheets=t.map(t=>t.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map(t=>t.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==xt&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)}))}render(){return xt}}Pt.finalized=!0,Pt.render=(t,e,n)=>{if(!n||"object"!=typeof n||!n.scopeName)throw new Error("The `scopeName` option is required.");const i=n.scopeName,s=st.has(e),r=lt&&11===e.nodeType&&!!e.host,o=r&&!ht.has(i),a=o?document.createDocumentFragment():e;if(((t,e,n)=>{let i=st.get(e);void 0===i&&(C(e,e.firstChild),st.set(e,i=new Z(Object.assign({templateFactory:nt},n))),i.appendInto(e)),i.setValue(t),i.commit()})(t,a,Object.assign({templateFactory:ct(i)},n)),o){const t=st.get(a);st.delete(a);const n=t.value instanceof z?t.value.template:void 0;ut(i,a,n),C(e,e.firstChild),e.appendChild(a),st.set(e,t)}!s&&r&&window.ShadyCSS.styleElement(e.host)};console.info("%c  FOLDER-CARD \n%c  Version 0.2.0    ","color: orange; font-weight: bold; background: black","color: white; font-weight: bold; background: dimgray");let Nt=class extends Pt{render(){return this.config&&this.hass?this.folderEntity?this.folderEntity.attributes.file_list?0===this.files.length?this.renderEmpty():ot`
+(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const bt={};class xt extends gt{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(void 0===t)this._styles=[];else if(Array.isArray(t)){const e=(t,n)=>t.reduceRight((t,n)=>Array.isArray(n)?e(n,t):(t.add(n),t),n),n=e(t,new Set),i=[];n.forEach(t=>i.unshift(t)),this._styles=i}else this._styles=[t]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?vt?this.renderRoot.adoptedStyleSheets=t.map(t=>t.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map(t=>t.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==bt&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)}))}render(){return bt}}xt.finalized=!0,xt.render=(t,e,n)=>{if(!n||"object"!=typeof n||!n.scopeName)throw new Error("The `scopeName` option is required.");const i=n.scopeName,s=st.has(e),r=lt&&11===e.nodeType&&!!e.host,o=r&&!ht.has(i),a=o?document.createDocumentFragment():e;if(((t,e,n)=>{let i=st.get(e);void 0===i&&(C(e,e.firstChild),st.set(e,i=new Z(Object.assign({templateFactory:nt},n))),i.appendInto(e)),i.setValue(t),i.commit()})(t,a,Object.assign({templateFactory:ct(i)},n)),o){const t=st.get(a);st.delete(a);const n=t.value instanceof z?t.value.template:void 0;ut(i,a,n),C(e,e.firstChild),e.appendChild(a),st.set(e,t)}!s&&r&&window.ShadyCSS.styleElement(e.host)};const Pt=((t,...e)=>{const n=e.reduce((e,n,i)=>e+(t=>{if(t instanceof wt)return t.cssText;if("number"==typeof t)return t;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${t}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(n)+t[i+1],t[0]);return new wt(n,St)})`
+  .card-header-wrapper {
+    display: flex;
+    padding: 24px 16px 16px;
+  }
+
+  .card-header-wrapper .count {
+    margin-left: auto;
+    align-self: center
+  }
+
+  .card-header {
+    color: var(--ha-card-header-color, --primary-text-color);
+    font-family: var(--ha-card-header-font-family,);
+    letter-spacing: -0.012em;
+    line-height: 32px;
+  }
+
+  .card-header > .name {
+    font-size: var(--ha-card-header-font-size, 24px);
+  }
+
+  .card-header > .name > .icon {
+    padding: 0px 18px 0px 8px;
+  }
+
+  .folder-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .folder-item .icon-wrapper {
+    flex-basis: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .folder-item .item-name {
+    margin-left: 16px;
+    flex: 1 0 60px;
+  }
+
+  .card-empty {
+    padding: 16px;
+  }
+
+  .card-warning {
+    background-color: var(--google-red-500);
+    color: #fff;
+  }
+`;console.info("%c  FOLDER-CARD \n%c  Version 0.3.0    ","color: orange; font-weight: bold; background: black","color: white; font-weight: bold; background: dimgray");let Nt=class extends xt{constructor(){super(...arguments),this.isExpanded=!1}get totalFileCount(){var t,e;return null!==(e=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list.length)&&void 0!==e?e:0}get folderEntity(){var t;if(this.config)return null===(t=this.hass)||void 0===t?void 0:t.states[this.config.entity]}get files(){var t,e,n,i;let s=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list;return!1===Boolean(null===(e=this.config)||void 0===e?void 0:e.show_hidden)&&(s=s.filter(t=>-1!==this.getFileName(t).indexOf("."))),(null===(n=this.config)||void 0===n?void 0:n.sort)&&(s=s.sort((t,e)=>{var n;const i=t>e?-1:1;return"ascending"===(null===(n=this.config)||void 0===n?void 0:n.sort)?-1*i:i})),(null===(i=this.config)||void 0===i?void 0:i.max_count)&&(s=s.slice(0,this.config.max_count)),s}render(){return this.config&&this.hass?this.folderEntity?this.folderEntity.attributes.file_list?0===this.files.length?this.renderEmpty():ot`
       <ha-card>
         ${this.renderHeader()}
-        ${this.files.map(t=>this.renderFile(t))}
+        <div class="card-content">${this.files.map(t=>this.renderFile(t))}</div>
       </ha-card>
-    `:this.renderWarning("The entity you passed doesn't appear to be a folder sensor!"):this.renderWarning("The entity could not be found!"):null}setConfig(t){if(!t)throw new Error("Invalid configuration");if(!t.entity)throw new Error("You need to set an entity");this.config=t}getCardSize(){return 6}renderFile(t){return ot`
-      <paper-item class="folder-item" @click=${()=>this.selectFile(t)}>
-        <paper-item-body><ha-icon class="icon" icon="mdi:file"></ha-icon></paper-item-body>
-        <paper-item-body>${this.getFileName(t)}</paper-item-body>
-      </paper-item>
+    `:this.renderWarning("The entity you passed doesn't appear to be a folder sensor."):this.renderWarning("The entity could not be found."):null}setConfig(t){if(!t)throw new Error("Invalid configuration");if(!t.entity)throw new Error("You need to set an entity");this.config=t}getCardSize(){return this.files.length}renderFile(t){return ot`
+      <div class="folder-item" @click=${()=>this.selectFile(t)}>
+        <div class="icon-wrapper"><ha-icon icon="mdi:file"></ha-icon></div>
+        <div class="item-name">${this.getFileName(t)}</div>
+      </div>
     `}renderHeader(){var t,e;return this.config&&(this.config.title||(null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.friendly_name))?ot`
-      <div class="card-header">
-        <div class="name">
-          ${this.config.icon&&ot` <ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
-          ${null!==(e=this.config.title)&&void 0!==e?e:this.folderEntity.attributes.friendly_name}
+      <div class="card-header-wrapper">
+        <div class="card-header">
+          <div class="name">
+            ${this.config.icon&&ot`<ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
+            ${null!==(e=this.config.title)&&void 0!==e?e:this.folderEntity.attributes.friendly_name}
+          </div>
         </div>
         ${this.config.show_count&&ot`<div class="count">Total: ${this.totalFileCount}</div>`}
       </div>
     `:null}renderWarning(t){return ot`
       <ha-card>
-        <paper-item class="warning">${t}</paper-item>
+        <div class="card-empty card-warning">${t}</div>
       </ha-card>
     `}renderEmpty(){return ot`
       <ha-card>
         ${this.renderHeader()}
-        <paper-item>There are no files to show.</paper-item>
+        <div class="card-empty">There are no files to show.</div>
       </ha-card>
-    `}get files(){var t,e,n,i;let s=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list;return!1===Boolean(null===(e=this.config)||void 0===e?void 0:e.show_hidden)&&(s=s.filter(t=>-1!==this.getFileName(t).indexOf("."))),(null===(n=this.config)||void 0===n?void 0:n.sort)&&(s=s.sort((t,e)=>{var n;return"ascending"===(null===(n=this.config)||void 0===n?void 0:n.sort)?t>e?1:-1:t>e?-1:1})),(null===(i=this.config)||void 0===i?void 0:i.max_count)&&(s=s.slice(0,this.config.max_count)),s}get totalFileCount(){var t,e;return null!==(e=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list.length)&&void 0!==e?e:0}get folderEntity(){var t;if(this.config)return null===(t=this.hass)||void 0===t?void 0:t.states[this.config.entity]}getFileName(t){return t.split("/").slice(-1)[0]}selectFile(t){if(!this.hass)return;const e=this.buildActionConfig(t);P(this,this.hass,e,!1,!1)}buildActionConfig(t){var e,n,i;let s={entity:null===(e=this.config)||void 0===e?void 0:e.entity,tap_action:Object.assign({},null===(n=this.config)||void 0===n?void 0:n.tap_action)};const r={file:t};return"call-service"===(null===(i=s.tap_action)||void 0===i?void 0:i.action)&&(s.tap_action.service_data=Object.assign({},s.tap_action.service_data,r)),s}static get styles(){return wt`
-      .card-header {
-        display: flex;
-      }
-
-      .card-header .count {
-        margin-left: auto;
-        font-size: var(--paper-font-subhead_-_font-size);
-      }
-
-      .folder-item {
-        cursor: pointer;
-      }
-
-      .icon {
-        padding: 0px 18px 0px 8px;
-      }
-
-      .warning {
-        background-color: var(--google-red-500);
-        color: #fff;
-      }
-    `}};var Ct;t([yt()],Nt.prototype,"hass",void 0),t([yt()],Nt.prototype,"config",void 0),Nt=t([(Ct="folder-card",t=>"function"==typeof t?((t,e)=>(window.customElements.define(t,e),e))(Ct,t):((t,e)=>{const{kind:n,elements:i}=e;return{kind:n,elements:i,finisher(e){window.customElements.define(t,e)}}})(Ct,t))],Nt);export{Nt as FolderCard};
+    `}getFileName(t){return t.split("/").slice(-1)[0]}selectFile(t){if(!this.hass)return;const e=this.buildActionConfig(t);P(this,this.hass,e,!1,!1)}buildActionConfig(t){var e,n,i;let s={entity:null===(e=this.config)||void 0===e?void 0:e.entity,tap_action:Object.assign({},null===(n=this.config)||void 0===n?void 0:n.tap_action)};const r={file:t};return"call-service"===(null===(i=s.tap_action)||void 0===i?void 0:i.action)&&(s.tap_action.service_data=Object.assign({},s.tap_action.service_data,r)),s}static get styles(){return Pt}};var Ct;t([_t()],Nt.prototype,"hass",void 0),t([_t()],Nt.prototype,"config",void 0),Nt=t([(Ct="folder-card",t=>"function"==typeof t?((t,e)=>(window.customElements.define(t,e),e))(Ct,t):((t,e)=>{const{kind:n,elements:i}=e;return{kind:n,elements:i,finisher(e){window.customElements.define(t,e)}}})(Ct,t))],Nt);export{Nt as FolderCard};
