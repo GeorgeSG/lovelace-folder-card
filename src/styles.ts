@@ -30,6 +30,7 @@ export const styles = css`
     display: flex;
     align-items: center;
     cursor: pointer;
+    height: 40px;
   }
 
   .folder-item .icon-wrapper {
@@ -38,7 +39,6 @@ export const styles = css`
     align-items: center;
     justify-content: center;
     width: 40px;
-    height: 40px;
   }
 
   .folder-item .item-name {
