@@ -101,7 +101,7 @@ export class FolderCard extends LitElement {
   }
 
   getCardSize(): number {
-    return this.files.length;
+    return 6;
   }
 
   private renderFile(file): TemplateResult {
