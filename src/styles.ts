@@ -49,9 +49,4 @@ export const styles = css`
   .card-empty {
     padding: 16px;
   }
-
-  .card-warning {
-    background-color: var(--google-red-500);
-    color: #fff;
-  }
 `;

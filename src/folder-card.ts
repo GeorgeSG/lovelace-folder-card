@@ -60,11 +60,11 @@ export class FolderCard extends LitElement {
     }
 
     if (!this.folderEntity) {
-      return this.renderWarning('The entity could not be found.');
+      return this.renderError('The entity could not be found.');
     }
 
     if (!this.folderEntity.attributes.file_list) {
-      return this.renderWarning("The entity you passed doesn't appear to be a folder sensor.");
+      return this.renderError("The entity you passed doesn't appear to be a folder sensor.");
     }
 
     if (this.files.length === 0) {
@@ -143,12 +143,9 @@ export class FolderCard extends LitElement {
     `;
   }
 
-  private renderWarning(warning: string): TemplateResult {
-    return html`
-      <ha-card>
-        <div class="card-empty card-warning">${warning}</div>
-      </ha-card>
-    `;
+  private renderError(error: string): TemplateResult {
+    const config = { error, origConfig: this.config };
+    return html`<hui-error-card ._config="${config}"></hui-error-card>`;
   }
 
   private renderEmpty(): TemplateResult {
