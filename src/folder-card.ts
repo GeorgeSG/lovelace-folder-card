@@ -1,12 +1,6 @@
 import { handleClick, HomeAssistant } from 'custom-card-helpers';
-import {
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from 'lit-element';
+import { HassEntity } from 'home-assistant-js-websocket';
+import { CSSResult, customElement, html, LitElement, property, TemplateResult } from 'lit-element';
 import { CARD_VERSION } from './const';
 import { styles } from './styles';
 import { FolderCardConfig } from './types';
@@ -21,9 +15,9 @@ console.info(
 export class FolderCard extends LitElement {
   @property() private hass?: HomeAssistant;
   @property() private config?: FolderCardConfig;
-  @property() private isExpanded: boolean = false;
+  @property() private isExpanded = false;
 
-  private get folderEntity() {
+  private get folderEntity(): HassEntity | undefined {
     if (!this.config) {
       return;
     }
@@ -88,7 +82,7 @@ export class FolderCard extends LitElement {
     `;
   }
 
-  setConfig(config) {
+  setConfig(config): void {
     if (!config) {
       throw new Error('Invalid configuration');
     }
@@ -187,7 +181,7 @@ export class FolderCard extends LitElement {
    * Inserts a "file" parameter in service_data for a "call-service" action.
    */
   private buildActionConfig(file): object {
-    let config = {
+    const config = {
       entity: this.config?.entity,
       tap_action: Object.assign({}, this.config?.tap_action),
     };

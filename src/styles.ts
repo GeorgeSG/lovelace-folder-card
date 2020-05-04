@@ -8,12 +8,12 @@ export const styles = css`
 
   .card-header-wrapper .count {
     margin-left: auto;
-    align-self: center
+    align-self: center;
   }
 
   .card-header {
     color: var(--ha-card-header-color, --primary-text-color);
-    font-family: var(--ha-card-header-font-family,);
+    font-family: var(--ha-card-header-font-family);
     letter-spacing: -0.012em;
     line-height: 32px;
   }

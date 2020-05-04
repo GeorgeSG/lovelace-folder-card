@@ -192,12 +192,12 @@ found at http://polymer.github.io/PATENTS.txt
 
   .card-header-wrapper .count {
     margin-left: auto;
-    align-self: center
+    align-self: center;
   }
 
   .card-header {
     color: var(--ha-card-header-color, --primary-text-color);
-    font-family: var(--ha-card-header-font-family,);
+    font-family: var(--ha-card-header-font-family);
     letter-spacing: -0.012em;
     line-height: 32px;
   }
@@ -238,7 +238,7 @@ found at http://polymer.github.io/PATENTS.txt
     background-color: var(--google-red-500);
     color: #fff;
   }
-`;console.info("%c  FOLDER-CARD \n%c  Version 0.3.0    ","color: orange; font-weight: bold; background: black","color: white; font-weight: bold; background: dimgray");let Nt=class extends xt{constructor(){super(...arguments),this.isExpanded=!1}get folderEntity(){var t;if(this.config)return null===(t=this.hass)||void 0===t?void 0:t.states[this.config.entity]}get files(){var t,e,n,i;let s=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list;return!1===Boolean(null===(e=this.config)||void 0===e?void 0:e.show_hidden)&&(s=s.filter(t=>-1!==this.getFileName(t).indexOf("."))),(null===(n=this.config)||void 0===n?void 0:n.sort)&&(s=s.sort((t,e)=>{var n;const i=t>e?-1:1;return"ascending"===(null===(n=this.config)||void 0===n?void 0:n.sort)?-1*i:i})),!this.isExpanded&&(null===(i=this.config)||void 0===i?void 0:i.max_count)&&(s=s.slice(0,this.config.max_count)),s}get totalFileCount(){var t,e;return null!==(e=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list.length)&&void 0!==e?e:0}get canExpand(){var t,e;return Boolean(null===(t=this.config)||void 0===t?void 0:t.max_count)&&this.totalFileCount>(null===(e=this.config)||void 0===e?void 0:e.max_count)}render(){return this.config&&this.hass?this.folderEntity?this.folderEntity.attributes.file_list?0===this.files.length?this.renderEmpty():ot`
+`;console.info("%c  FOLDER-CARD \n%c  Version 0.3.1    ","color: orange; font-weight: bold; background: black","color: white; font-weight: bold; background: dimgray");let Nt=class extends xt{constructor(){super(...arguments),this.isExpanded=!1}get folderEntity(){var t;if(this.config)return null===(t=this.hass)||void 0===t?void 0:t.states[this.config.entity]}get files(){var t,e,n,i;let s=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list;return!1===Boolean(null===(e=this.config)||void 0===e?void 0:e.show_hidden)&&(s=s.filter(t=>-1!==this.getFileName(t).indexOf("."))),(null===(n=this.config)||void 0===n?void 0:n.sort)&&(s=s.sort((t,e)=>{var n;const i=t>e?-1:1;return"ascending"===(null===(n=this.config)||void 0===n?void 0:n.sort)?-1*i:i})),!this.isExpanded&&(null===(i=this.config)||void 0===i?void 0:i.max_count)&&(s=s.slice(0,this.config.max_count)),s}get totalFileCount(){var t,e;return null!==(e=null===(t=this.folderEntity)||void 0===t?void 0:t.attributes.file_list.length)&&void 0!==e?e:0}get canExpand(){var t,e;return Boolean(null===(t=this.config)||void 0===t?void 0:t.max_count)&&this.totalFileCount>(null===(e=this.config)||void 0===e?void 0:e.max_count)}render(){return this.config&&this.hass?this.folderEntity?this.folderEntity.attributes.file_list?0===this.files.length?this.renderEmpty():ot`
       <ha-card>
         ${this.renderHeader()}
         <div class="card-content">
@@ -275,4 +275,4 @@ found at http://polymer.github.io/PATENTS.txt
         ${this.renderHeader()}
         <div class="card-empty">There are no files to show.</div>
       </ha-card>
-    `}getFileName(t){return t.split("/").slice(-1)[0]}onSelectFile(t){if(!this.hass)return;const e=this.buildActionConfig(t);P(this,this.hass,e,!1,!1)}onToggleCollapse(){this.isExpanded=!this.isExpanded}buildActionConfig(t){var e,n,i;let s={entity:null===(e=this.config)||void 0===e?void 0:e.entity,tap_action:Object.assign({},null===(n=this.config)||void 0===n?void 0:n.tap_action)};const r={file:t};return"call-service"===(null===(i=s.tap_action)||void 0===i?void 0:i.action)&&(s.tap_action.service_data=Object.assign({},s.tap_action.service_data,r)),s}static get styles(){return Pt}};var Ct;t([_t()],Nt.prototype,"hass",void 0),t([_t()],Nt.prototype,"config",void 0),t([_t()],Nt.prototype,"isExpanded",void 0),Nt=t([(Ct="folder-card",t=>"function"==typeof t?((t,e)=>(window.customElements.define(t,e),e))(Ct,t):((t,e)=>{const{kind:n,elements:i}=e;return{kind:n,elements:i,finisher(e){window.customElements.define(t,e)}}})(Ct,t))],Nt);export{Nt as FolderCard};
+    `}getFileName(t){return t.split("/").slice(-1)[0]}onSelectFile(t){if(!this.hass)return;const e=this.buildActionConfig(t);P(this,this.hass,e,!1,!1)}onToggleCollapse(){this.isExpanded=!this.isExpanded}buildActionConfig(t){var e,n,i;const s={entity:null===(e=this.config)||void 0===e?void 0:e.entity,tap_action:Object.assign({},null===(n=this.config)||void 0===n?void 0:n.tap_action)},r={file:t};return"call-service"===(null===(i=s.tap_action)||void 0===i?void 0:i.action)&&(s.tap_action.service_data=Object.assign({},s.tap_action.service_data,r)),s}static get styles(){return Pt}};var Ct;t([_t()],Nt.prototype,"hass",void 0),t([_t()],Nt.prototype,"config",void 0),t([_t()],Nt.prototype,"isExpanded",void 0),Nt=t([(Ct="folder-card",t=>"function"==typeof t?((t,e)=>(window.customElements.define(t,e),e))(Ct,t):((t,e)=>{const{kind:n,elements:i}=e;return{kind:n,elements:i,finisher(e){window.customElements.define(t,e)}}})(Ct,t))],Nt);export{Nt as FolderCard};
