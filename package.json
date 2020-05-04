@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-typescript": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
