@@ -2,10 +2,11 @@
 
 [![hacs_badge][hacs-shield]][hacs]
 [![GitHub Release][releases-shield]][releases]
-[![License][license-shield]][license]
+![CI](https://github.com/GeorgeSG/lovelace-folder-card/workflows/CI/badge.svg)
 [![Project Maintenance][maintenance-shield]][maintenance]
 [![GitHub Activity][commits-shield]][commits]
-[![File Size][file-size-shield]][file-size]
+[![License][license-shield]][license]
+
 
 ## Overview
 
@@ -73,5 +74,3 @@ tap_action:
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
 [hacs-shield]: https://img.shields.io/badge/HACS-Default-green.svg?style=flat-square
 [hacs]: https://github.com/custom-components/hacs
-[file-size-shield]: https://img.shields.io/github/size/GeorgeSG/lovelace-folder-card/dist/folder-card.js?style=flat-square
-[file-size]: https://github.com/GeorgeSG/lovelace-folder-card/blob/master/dist/folder-card.js
