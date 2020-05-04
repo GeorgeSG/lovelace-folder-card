@@ -7,7 +7,6 @@
 [![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]][license]
 
-
 ## Overview
 
 This is a [Lovelace](https://www.home-assistant.io/lovelace) card for [Home Assistant](https://www.home-assistant.io/) that displays files listed by a [Folder sensor](https://www.home-assistant.io/integrations/folder/).
@@ -29,12 +28,12 @@ resources:
 ## Usage
 
 ```yaml
-type: "custom:folder-card"
-title: "My file list"
-icon: "mdi:folder"
+type: 'custom:folder-card'
+title: 'My file list'
+icon: 'mdi:folder'
 entity: sensor.folder
 tap_action:
-  action: "call-service"
+  action: 'call-service'
   service: script.use_file
 ```
 
@@ -64,6 +63,14 @@ tap_action:
 | haptic          | string | **Optional** | Haptic feedback for the [Beta IOS App](http://home-assistant.io/ios/beta) _success, warning, failure, light, medium, heavy, selection_                                             | `none`  |
 | repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                                                             | `none`  |
 
+## Meta
+
+**Georgi Gardev**
+
+- [gar.dev](https://gar.dev)
+- [![GitHub][github-icon]](https://github.com/GeorgeSG/) [GeorgeSG](https://github.com/GeorgeSG/)
+- [![Twitter][twitter-icon]](https://twitter.com/georgesg92) [@georgesg92](https://twitter.com/georgesg92)
+
 [commits-shield]: https://img.shields.io/github/commit-activity/y/GeorgeSG/lovelace-folder-card?style=flat-square
 [commits]: https://github.com/GeorgeSG/lovelace-folder-card/commits/master
 [license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card?style=flat-square
@@ -74,3 +81,5 @@ tap_action:
 [releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
 [hacs-shield]: https://img.shields.io/badge/HACS-Default-green.svg?style=flat-square
 [hacs]: https://github.com/custom-components/hacs
+[github-icon]: http://i.imgur.com/9I6NRUm.png
+[twitter-icon]: http://i.imgur.com/wWzX9uB.png
