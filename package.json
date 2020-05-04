@@ -9,7 +9,8 @@
     "hass",
     "automation",
     "lovelace",
-    "custom-cards"
+    "lovelace-card",
+    "lovelace-custom-card"
   ],
   "license": "MIT",
   "module": "folder-card.js",
