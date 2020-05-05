@@ -1,7 +1,8 @@
 import { handleClick, HomeAssistant } from 'custom-card-helpers';
 import { HassEntity } from 'home-assistant-js-websocket';
 import { CSSResult, customElement, html, LitElement, property, TemplateResult } from 'lit-element';
-import { CARD_VERSION } from './const';
+import { CARD_SIZE, CARD_VERSION } from './const';
+import { Partial } from './partials';
 import { styles } from './styles';
 import { FolderCardConfig } from './types';
 
@@ -13,33 +14,29 @@ console.info(
 
 @customElement('folder-card')
 export class FolderCard extends LitElement {
-  @property() private hass?: HomeAssistant;
-  @property() private config?: FolderCardConfig;
+  @property() private hass!: HomeAssistant;
+  @property() private config!: FolderCardConfig;
   @property() private isExpanded = false;
 
-  private get folderEntity(): HassEntity | undefined {
-    if (!this.config) {
-      return;
-    }
-
-    return this.hass?.states[this.config!.entity];
+  private get entity(): HassEntity | undefined {
+    return this.hass.states[this.config.entity];
   }
 
   private get files(): string[] {
-    let files: string[] = this.folderEntity?.attributes.file_list;
+    let files: string[] = this.entity?.attributes.file_list;
 
-    if (Boolean(this.config?.show_hidden) === false) {
+    if (Boolean(this.config.show_hidden) === false) {
       files = files.filter((filePath) => this.getFileName(filePath).indexOf('.') !== -1);
     }
 
-    if (this.config?.sort) {
+    if (this.config.sort) {
       files = files.sort((f1, f2) => {
         const order = f1 > f2 ? -1 : 1;
-        return this.config?.sort === 'ascending' ? order * -1 : order;
+        return this.config.sort === 'ascending' ? order * -1 : order;
       });
     }
 
-    if (!this.isExpanded && this.config?.max_count) {
+    if (!this.isExpanded && this.config.max_count) {
       files = files.slice(0, this.config.max_count);
     }
 
@@ -47,24 +44,23 @@ export class FolderCard extends LitElement {
   }
 
   private get totalFileCount(): number {
-    return this.folderEntity?.attributes.file_list.length ?? 0;
+    return this.entity?.attributes.file_list.length ?? 0;
   }
 
   private get canExpand(): boolean {
-    return Boolean(this.config?.max_count) && this.totalFileCount > this.config?.max_count!;
+    return Boolean(this.config.max_count) && this.totalFileCount > this.config.max_count!;
   }
 
   render(): TemplateResult | null {
-    if (!this.config || !this.hass) {
-      return null;
+    if (!this.entity) {
+      return Partial.error('The entity could not be found.', this.config);
     }
 
-    if (!this.folderEntity) {
-      return this.renderError('The entity could not be found.');
-    }
-
-    if (!this.folderEntity.attributes.file_list) {
-      return this.renderError("The entity you passed doesn't appear to be a folder sensor.");
+    if (!this.entity.attributes.file_list) {
+      return Partial.error(
+        "The entity you passed doesn't appear to be a folder sensor.",
+        this.config
+      );
     }
 
     if (this.files.length === 0) {
@@ -95,7 +91,7 @@ export class FolderCard extends LitElement {
   }
 
   getCardSize(): number {
-    return 6;
+    return CARD_SIZE;
   }
 
   private renderFile(file): TemplateResult {
@@ -120,11 +116,7 @@ export class FolderCard extends LitElement {
   }
 
   private renderHeader(): TemplateResult | null {
-    if (!this.config) {
-      return null;
-    }
-
-    if (!this.config.title && !this.folderEntity?.attributes.friendly_name) {
+    if (!this.config.title && !this.entity?.attributes.friendly_name) {
       return null;
     }
 
@@ -133,7 +125,7 @@ export class FolderCard extends LitElement {
         <div class="card-header">
           <div class="name">
             ${this.config.icon && html`<ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
-            ${this.config.title ?? this.folderEntity!.attributes.friendly_name}
+            ${this.config.title ?? this.entity!.attributes.friendly_name}
           </div>
         </div>
         ${this.config.show_count
@@ -141,11 +133,6 @@ export class FolderCard extends LitElement {
           : ''}
       </div>
     `;
-  }
-
-  private renderError(error: string): TemplateResult {
-    const config = { error, origConfig: this.config };
-    return html`<hui-error-card ._config="${config}"></hui-error-card>`;
   }
 
   private renderEmpty(): TemplateResult {
@@ -162,10 +149,6 @@ export class FolderCard extends LitElement {
   }
 
   private onSelectFile(file): void {
-    if (!this.hass) {
-      return;
-    }
-
     const actionConfig = this.buildActionConfig(file);
     handleClick(this, this.hass, actionConfig, false, false);
   }
@@ -179,8 +162,8 @@ export class FolderCard extends LitElement {
    */
   private buildActionConfig(file): object {
     const config = {
-      entity: this.config?.entity,
-      tap_action: Object.assign({}, this.config?.tap_action),
+      entity: this.config.entity,
+      tap_action: Object.assign({}, this.config.tap_action),
     };
 
     const fileObj = { file };

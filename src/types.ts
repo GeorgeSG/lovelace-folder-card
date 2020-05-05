@@ -1,6 +1,6 @@
-import { ActionConfig } from 'custom-card-helpers';
+import { ActionConfig, LovelaceCardConfig } from 'custom-card-helpers';
 
-export interface FolderCardConfig {
+export interface FolderCardConfig extends LovelaceCardConfig {
   entity: string;
   title?: string;
   icon?: string;
