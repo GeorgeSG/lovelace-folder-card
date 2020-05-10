@@ -1,16 +1,24 @@
-import { handleClick, HomeAssistant } from 'custom-card-helpers';
+import { handleClick, HomeAssistant, LovelaceCard } from 'custom-card-helpers';
 import { HassEntity } from 'home-assistant-js-websocket';
 import { CSSResult, customElement, html, LitElement, property, TemplateResult } from 'lit-element';
 import { CARD_SIZE, CARD_VERSION } from './const';
 import { Partial } from './partials';
 import { styles } from './styles';
-import { FolderCardConfig } from './types';
+import { FolderCardConfig, FolderSort } from './types';
+import './editor';
 
 console.info(
   `%c  FOLDER-CARD \n%c  Version ${CARD_VERSION}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray'
 );
+
+window.customCards = window.customCards || [];
+window.customCards.push({
+  type: 'folder-card',
+  name: 'Folder Card',
+  description: 'A Folder Card for displaying files listed by a Folder Sensor.',
+});
 
 @customElement('folder-card')
 export class FolderCard extends LitElement {
@@ -32,7 +40,7 @@ export class FolderCard extends LitElement {
     if (this.config.sort) {
       files = files.sort((f1, f2) => {
         const order = f1 > f2 ? -1 : 1;
-        return this.config.sort === 'ascending' ? order * -1 : order;
+        return this.config.sort === FolderSort.ASC ? order * -1 : order;
       });
     }
 
@@ -51,14 +59,22 @@ export class FolderCard extends LitElement {
     return Boolean(this.config.max_count) && this.totalFileCount > this.config.max_count!;
   }
 
+  private get cardTitle(): string | undefined {
+    if (this.config.title && this.config.title.length > 0) {
+      return this.config.title;
+    }
+
+    return this.entity?.attributes.friendly_name;
+  }
+
   render(): TemplateResult | null {
     if (!this.entity) {
-      return Partial.error('The entity could not be found.', this.config);
+      return Partial.error('Entity not found', this.config);
     }
 
     if (!this.entity.attributes.file_list) {
       return Partial.error(
-        "The entity you passed doesn't appear to be a folder sensor.",
+        "The entity you passed doesn't appear to be a folder sensor",
         this.config
       );
     }
@@ -116,7 +132,7 @@ export class FolderCard extends LitElement {
   }
 
   private renderHeader(): TemplateResult | null {
-    if (!this.config.title && !this.entity?.attributes.friendly_name) {
+    if (!this.cardTitle) {
       return null;
     }
 
@@ -124,12 +140,14 @@ export class FolderCard extends LitElement {
       <div class="card-header-wrapper">
         <div class="card-header">
           <div class="name">
-            ${this.config.icon && html`<ha-icon class="icon" icon=${this.config.icon}></ha-icon> `}
-            ${this.config.title ?? this.entity!.attributes.friendly_name}
+            ${this.config.icon
+              ? html`<ha-icon class="icon" icon=${this.config.icon}></ha-icon>`
+              : ''}
+            ${this.cardTitle}
           </div>
         </div>
         ${this.config.show_count
-          ? html` <div class="count">Total: ${this.totalFileCount}</div> `
+          ? html`<div class="count">Total: ${this.totalFileCount}</div>`
           : ''}
       </div>
     `;
@@ -177,5 +195,9 @@ export class FolderCard extends LitElement {
 
   static get styles(): CSSResult {
     return styles;
+  }
+
+  static getConfigElement(): LovelaceCard {
+    return document.createElement('folder-card-editor') as LovelaceCard;
   }
 }
