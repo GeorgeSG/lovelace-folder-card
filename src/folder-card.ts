@@ -17,7 +17,7 @@ window.customCards = window.customCards || [];
 window.customCards.push({
   type: 'folder-card',
   name: 'Folder Card',
-  description: 'A Folder Card for displaying files listed by a Folder Sensor.',
+  description: 'The Folder Card allows you to list and interact with files from a Folder Sensor.',
 });
 
 @customElement('folder-card')
