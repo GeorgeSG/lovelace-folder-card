@@ -1,11 +1,11 @@
-# Folder Card by [@georgesg](https://www.github.com/georgesg)
+# Folder Card
 
-[![hacs_badge][hacs-shield]][hacs]
-[![GitHub Release][releases-shield]][releases]
-![CI](https://github.com/GeorgeSG/lovelace-folder-card/workflows/CI/badge.svg)
-[![Project Maintenance][maintenance-shield]][maintenance]
-[![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]][license]
+[![HACS][hacs-shield]][hacs-link]
+[![Downloads][downloads-shield]][downloads-link]
+[![GitHub Release][releases-shield]][releases-link]
+[![CI][ci-shield]][ci-link]
+[![Project Maintenance][maintenance-shield]][maintenance-link]
+[![License][license-shield]][license-link]
 
 ## Overview
 
@@ -13,7 +13,7 @@ This is a [Lovelace](https://www.home-assistant.io/lovelace) card for [Home Assi
 
 If you define a `call-service` tap_action, the service will receive a `file` variable with the file path of the selected file.
 
-![example](assets/example.png)
+![example](https://raw.githubusercontent.com/GeorgeSG/lovelace-folder-card/master/examples/example.png)
 
 ## Installation
 
@@ -68,18 +68,23 @@ tap_action:
 **Georgi Gardev**
 
 - [gar.dev](https://gar.dev)
-- [![GitHub][github-icon]](https://github.com/GeorgeSG/) [GeorgeSG](https://github.com/GeorgeSG/)
-- [![Twitter][twitter-icon]](https://twitter.com/georgesg92) [@georgesg92](https://twitter.com/georgesg92)
+- [![GitHub][github-icon]][github-link] [GeorgeSG][github-link]
+- [![Twitter][twitter-icon]][twitter-link] [@georgesg92][twitter-link]
 
-[commits-shield]: https://img.shields.io/github/commit-activity/y/GeorgeSG/lovelace-folder-card?style=flat-square
-[commits]: https://github.com/GeorgeSG/lovelace-folder-card/commits/master
-[license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card?style=flat-square
-[license]: https://github.com/GeorgeSG/lovelace-folder-card/blob/master/LICENSE
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=flat-square
-[maintenance]: https://github.com/GeorgeSG/lovelace-folder-card
-[releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg?style=flat-square
-[releases]: https://github.com/GeorgeSG/lovelace-folder-card/releases
-[hacs-shield]: https://img.shields.io/badge/HACS-Default-green.svg?style=flat-square
-[hacs]: https://github.com/custom-components/hacs
+[hacs-shield]: https://img.shields.io/badge/HACS-Default-brightgreen.svg
+[hacs-link]: https://github.com/custom-components/hacs
+[downloads-shield]: https://img.shields.io/github/downloads/GeorgeSG/lovelace-folder-card/latest/total?color=brightgreen&logo=github
+[downloads-link]: https://github.com/GeorgeSG/lovelace-folder-card/releases
+[releases-shield]: https://img.shields.io/github/release/GeorgeSG/lovelace-folder-card.svg
+[releases-link]: https://github.com/GeorgeSG/lovelace-folder-card/releases
+[ci-shield]: https://img.shields.io/github/workflow/status/GeorgeSG/lovelace-folder-card/CI?label=CI&logo=github&
+[ci-link]: https://github.com/GeorgeSG/lovelace-folder-card/actions?query=workflow%3ACI
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
+[maintenance-link]: https://github.com/GeorgeSG/lovelace-folder-card
+[license-shield]: https://img.shields.io/github/license/GeorgeSG/lovelace-folder-card?color=brightgreen
+[license-link]: https://github.com/GeorgeSG/lovelace-folder-card/blob/master/LICENSE
 [github-icon]: http://i.imgur.com/9I6NRUm.png
+[github-link]: https://github.com/GeorgeSG/
+
 [twitter-icon]: http://i.imgur.com/wWzX9uB.png
+[twitter-link]: https://twitter.com/georgesg92
