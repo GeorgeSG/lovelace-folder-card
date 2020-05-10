@@ -30,7 +30,7 @@ resources:
 
 ### Visual Editor
 
-Folder Card supports Lovelace's Visual Editor. Click the + button to add a card and search for time picker.
+Folder Card supports Lovelace's Visual Editor. Click the + button to add a card and search for folder card.
 
 ![Visual Editor](https://raw.githubusercontent.com/GeorgeSG/lovelace-folder-card/master/examples/visual_editor.png)
 
